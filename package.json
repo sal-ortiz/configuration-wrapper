@@ -14,6 +14,12 @@
   "scripts": {
     "test": "jasmine"
   },
+  "keywords": [
+    "configuration",
+    "json",
+    "yaml",
+    "xml"
+  ],
   "directories.lib": "lib",
   "directories.bin": "bin",
   "directories.test": "spec"
