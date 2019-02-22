@@ -1,7 +1,7 @@
 {
   "name": "configuration-wrapper",
   "description": "Perform simple boilerplate associated with handling configurations.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "configuration.js",
   "devDependencies": {
     "jasmine": "^3.2.0"
