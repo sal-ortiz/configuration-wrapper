@@ -1,0 +1,20 @@
+{
+  "name": "configuration-wrapper",
+  "description": "Perform simple boilerplate associated with handling configurations.",
+  "version": "0.0.1",
+  "main": "configuration.js",
+  "devDependencies": {
+    "jasmine": "^3.2.0"
+  },
+  "dependencies": {
+    "mime-types": "^2.1.3",
+    "yaml": "^1.0.0",
+    "fast-xml-parser": "^3.12.13"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "directories.lib": "lib",
+  "directories.bin": "bin",
+  "directories.test": "spec"
+}
