@@ -8,6 +8,7 @@ const XML = require('fast-xml-parser');
 
 const libPath = Path.join(__dirname, 'lib');
 const Parsers = require(Path.join(libPath, 'parsers.js'));
+const STDIN = require(Path.join(libPath, 'stdin.js'));
 
 
 class Configuration extends Object {
