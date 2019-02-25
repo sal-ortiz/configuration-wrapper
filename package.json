@@ -22,5 +22,9 @@
   ],
   "directories.lib": "lib",
   "directories.bin": "bin",
-  "directories.test": "spec"
+  "directories.test": "spec",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/slackjockey/configuration-wrapper.git"
+  }
 }
