@@ -47,10 +47,22 @@ class Configuration extends Object {
     let type = MIME.lookup(filename);
     let raw = File.readFileSync(filename);
 
-    let parser = Parsers[type];
-    let content = parser.parse(raw.toString());
+    return new this(raw, type);
+  }
 
-    return new this(content);
+  static fromSTDIN() {
+    let raw = STDIN.get();
+    let type;
+
+    if (Parsers.isJSON(raw)) {
+      type = MIME.lookup('json');
+    } else if (Parsers.isYAML(raw)) {
+      type = MIME.lookup('yml');
+    } else if (Parsers.isXML(raw)) {
+      type = MIME.lookup('xml');
+    }
+
+    return new this(raw, type);
   }
 
 }
