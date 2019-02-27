@@ -1,10 +1,8 @@
 
-<anArray type='array'>
-  <value>1</value>
-  <value>2</value>
-  <value>3</value>
-  <value>4</value>
-</anArray>
+<anArray>1</anArray>
+<anArray>2</anArray>
+<anArray>3</anArray>
+<anArray>4</anArray>
 
 <anObject>
   <one>1</one>
