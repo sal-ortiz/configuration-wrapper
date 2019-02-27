@@ -13,10 +13,15 @@ const STDIN = require(Path.join(libPath, 'stdin.js'));
 
 class Configuration extends Object {
 
-  constructor(input) {
+  constructor(raw, type) {
     super();
 
-    Object.assign(this, input);
+    let parser = Parsers[type];
+    let inpStr = raw.toString();
+
+    let content = parser.parse(inpStr);
+
+    Object.assign(this, content);
   }
 
   toJSON() {
