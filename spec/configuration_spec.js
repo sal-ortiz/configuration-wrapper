@@ -1,7 +1,11 @@
 
 const Path = require('path');
+const File = require('fs');
+
 const YAML = require('yaml');
 const XML = require('fast-xml-parser');
+
+const MIME = require('mime-types');
 
 const specPath = Path.join(__dirname);
 const rootPath = Path.join(specPath, '..');
@@ -151,6 +155,104 @@ describe(Configuration.name, () => {
         expect(ary[1]).toEqual(2);
         expect(ary[2]).toEqual(3);
         expect(ary[3]).toEqual(4);
+      });
+
+    });
+
+  });
+
+  describe('the fromSTDIN() static function', () => {
+    let input;
+    let stub;
+    let promise = Promise.resolve();
+    let file;
+
+    beforeEach(() => {
+      let baseLib = Configuration.STDIN;
+
+      input = File.readFileSync(stub);
+
+      spyOn(baseLib, 'get')
+        .and.returnValue(input.toString(), MIME.lookup(stub));
+    });
+
+    describe('given JSON input', () => {
+      stub = jsonStub;
+
+      it('parses the given input object', () => {
+        let res = Configuration.fromSTDIN();
+        let obj = res.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+
+      });
+
+      it('parses the given input array', () => {
+        let res = Configuration.fromSTDIN();
+        let ary = res.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+
+      });
+
+    });
+
+    describe('given YAML input', () => {
+      stub = yamlStub;
+
+      it('parses the given input object', () => {
+        let res = Configuration.fromSTDIN();
+        let obj = res.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+
+      });
+
+      it('parses the given input array', () => {
+        let res = Configuration.fromSTDIN();
+        let ary = res.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+
+      });
+
+    });
+
+    describe('given XML input', () => {
+      stub = xmlStub;
+
+      it('parses the given input object', () => {
+        let res = Configuration.fromSTDIN();
+        let obj = res.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+
+      });
+
+      it('parses the given input array', () => {
+        let res = Configuration.fromSTDIN();
+        let ary = res.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+
       });
 
     });
