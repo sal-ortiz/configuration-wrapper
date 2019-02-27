@@ -51,7 +51,7 @@ class Configuration extends Object {
   }
 
   static fromSTDIN() {
-    let raw = STDIN.get();
+    let raw = this.STDIN.get();
     let type;
 
     if (Parsers.isJSON(raw)) {
@@ -63,6 +63,11 @@ class Configuration extends Object {
     }
 
     return new this(raw, type);
+  }
+
+  static get STDIN() {
+    // exposed for testability/stubbing.
+    return STDIN;
   }
 
 }
