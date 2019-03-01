@@ -8,14 +8,20 @@ const XML = require('fast-xml-parser');
 
 const libPath = Path.join(__dirname, 'lib');
 const Parsers = require(Path.join(libPath, 'parsers.js'));
+const STDIN = require(Path.join(libPath, 'stdin.js'));
 
 
 class Configuration extends Object {
 
-  constructor(input) {
+  constructor(raw, type) {
     super();
 
-    Object.assign(this, input);
+    let parser = Parsers[type];
+    let inpStr = raw.toString();
+
+    let content = parser.parse(inpStr);
+
+    Object.assign(this, content);
   }
 
   toJSON() {
@@ -41,10 +47,27 @@ class Configuration extends Object {
     let type = MIME.lookup(filename);
     let raw = File.readFileSync(filename);
 
-    let parser = Parsers[type];
-    let content = parser.parse(raw.toString());
+    return new this(raw, type);
+  }
 
-    return new this(content);
+  static fromSTDIN() {
+    let raw = this.STDIN.get();
+    let type;
+
+    if (Parsers.isJSON(raw)) {
+      type = MIME.lookup('json');
+    } else if (Parsers.isYAML(raw)) {
+      type = MIME.lookup('yml');
+    } else if (Parsers.isXML(raw)) {
+      type = MIME.lookup('xml');
+    }
+
+    return new this(raw, type);
+  }
+
+  static get STDIN() {
+    // exposed for testability/stubbing.
+    return STDIN;
   }
 
 }

@@ -28,6 +28,12 @@ cfg.toXML();    // output as a XML string.
 or from a command line:
 ```
 to-json.js input.xml
-to-yaml input.json
-to-xml ipnut.yml
+to-yaml.js input.json
+to-xml.js ipnut.yml
+```
+or via STDIN
+```
+to-json.js < input.xml
+to-yaml.js < input.json
+to-xml.js < ipnut.yml
 ```
