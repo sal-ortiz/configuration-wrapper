@@ -2,6 +2,7 @@
   "name": "configuration-wrapper",
   "description": "Perform simple boilerplate associated with handling configurations.",
   "version": "0.0.3",
+  "license": "MIT",
   "main": "configuration.js",
   "devDependencies": {
     "jasmine": "^3.2.0"
