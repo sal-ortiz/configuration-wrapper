@@ -27,7 +27,7 @@ cfg.toXML();    // output as a XML string.
 ```
 or from a command line:
 ```
-to-json.js input.xml
-to-yaml input.json
-to-xml ipnut.yml
+bin/to-json.js input.xml
+bin/to-yaml.js input.json
+bin/to-xml.js input.yml
 ```
