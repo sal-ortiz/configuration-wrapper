@@ -1,5 +1,6 @@
 
 const Path = require('path');
+const File = require('fs');
 const YAML = require('yaml');
 const XML = require('fast-xml-parser');
 
@@ -25,6 +26,7 @@ describe(Configuration.name, () => {
     });
 
     describe('the toJSON() function.', () => {
+
       beforeEach(() => {
         result = instance.toJSON();
       });
@@ -42,6 +44,7 @@ describe(Configuration.name, () => {
     });
 
     describe('the toXML() function.', () => {
+
       beforeEach(() => {
         result = instance.toXML();
       });
@@ -59,6 +62,7 @@ describe(Configuration.name, () => {
     });
 
     describe('the toYAML() function.', () => {
+
       beforeEach(() => {
         result = instance.toYAML();
       });
@@ -134,6 +138,85 @@ describe(Configuration.name, () => {
 
     describe('given YAML input', () => {
       stub = yamlStub;
+
+      it('parses the given input object', () => {
+        let obj = result.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+      });
+
+      it('parses the given input array', () => {
+        let ary = result.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+      });
+
+    });
+
+  });
+
+  describe('the fromString(...) static function', () => {
+    let stub;
+    let result;
+
+    beforeEach(() => {
+      result = Configuration.fromString(stub);
+    });
+
+    describe('given JSON input', () => {
+      stub = File.readFileSync(jsonStub).toString();
+
+      it('parses the given input object', () => {
+        let obj = result.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+      });
+
+      it('parses the given input array', () => {
+        let ary = result.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+      });
+
+    });
+
+    describe('given XML input', () => {
+      stub = File.readFileSync(xmlStub).toString();
+
+      it('parses the given input object', () => {
+        let obj = result.anObject;
+
+        expect(obj.one).toEqual(1);
+        expect(obj.two).toEqual(2);
+        expect(obj.three).toEqual(3);
+        expect(obj.four).toEqual(4);
+      });
+
+      it('parses the given input array', () => {
+        let ary = result.anArray;
+
+        expect(ary[0]).toEqual(1);
+        expect(ary[1]).toEqual(2);
+        expect(ary[2]).toEqual(3);
+        expect(ary[3]).toEqual(4);
+      });
+
+    });
+
+    describe('given YAML input', () => {
+      stub = File.readFileSync(yamlStub).toString();
 
       it('parses the given input object', () => {
         let obj = result.anObject;

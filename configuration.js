@@ -8,6 +8,7 @@ const XML = require('fast-xml-parser');
 
 const libPath = Path.join(__dirname, 'lib');
 const Parsers = require(Path.join(libPath, 'parsers.js'));
+const Helpers = require(Path.join(libPath, 'helpers.js'));
 
 
 class Configuration extends Object {
@@ -44,7 +45,23 @@ class Configuration extends Object {
     let parser = Parsers[type];
     let content = parser.parse(raw.toString());
 
-    return new this(content);
+    return new Configuration(content);
+  }
+
+  static fromString(str) {
+    let parser;
+
+    if (Helpers.isJSON(str)) {
+      parser = Parsers['application/json'];
+    } else if (Helpers.isYAML(str)) {
+      parser = Parsers['text/yaml'];
+    } else if (Helpers.isXML(str)) {
+      parser = Parsers['application/xml'];
+    }
+
+    let content = parser.parse(str);
+
+    return new Configuration(content);
   }
 
 }
