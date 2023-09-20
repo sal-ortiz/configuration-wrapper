@@ -21,13 +21,10 @@ describe(Configuration.name, () => {
     let instance;
     let result;
 
-    beforeEach(() => {
-      instance = Configuration.fromFile(jsonStub);
-    });
-
     describe('the toJSON() function.', () => {
 
       beforeEach(() => {
+        instance = Configuration.fromFile(jsonStub);
         result = instance.toJSON();
       });
 
@@ -46,6 +43,7 @@ describe(Configuration.name, () => {
     describe('the toXML() function.', () => {
 
       beforeEach(() => {
+        instance = Configuration.fromFile(xmlStub);
         result = instance.toXML();
       });
 
@@ -64,6 +62,7 @@ describe(Configuration.name, () => {
     describe('the toYAML() function.', () => {
 
       beforeEach(() => {
+        instance = Configuration.fromFile(yamlStub);
         result = instance.toYAML();
       });
 
