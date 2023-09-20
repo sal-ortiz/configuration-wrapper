@@ -14,12 +14,20 @@ Configuration.fromFile('input.xml');  // load an XML file.
 Configuration.fromFile('input.yml');  // load a YAML file.
 Configuration.fromFile('input.json'); // load a JSON file.
 ```
+or
+```
+const File = require('fs');
 
+let rawStr = readFileSync('input.yml'); // YAML, JSON, or XML file
+
+Configuration.fromString(rawStr.toString())
+
+```
 ## Other Tricks
 
 ### output
 ```
-let cfg = Configuration.fromFile('input.json'); // load a JSON file.
+let cfg = Configuration.fromFile('input.json');
 
 cfg.toJSON();   // output as a JSON string.
 cfg.toYAML();   // output as a YAML string.
