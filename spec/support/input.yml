@@ -9,3 +9,11 @@ anObject:
   two: 2
   three: 3
   four: 4
+
+anotherArray: [one, two, three]
+
+fakeXML: |
+  <key>value</key>
+
+fakeJSON: |
+  "key": "value"

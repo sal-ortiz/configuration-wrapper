@@ -10,3 +10,11 @@
   <three>3</three>
   <four>4</four>
 </anObject>
+
+<fakeJSON>"key": "value"</fakeJSON>
+
+<fakeYAML>
+  key:
+    value
+
+</fakeYAML>
