@@ -1,7 +1,7 @@
 {
   "name": "configuration-wrapper",
   "description": "Perform simple boilerplate associated with handling configurations.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "configuration.js",
   "devDependencies": {
