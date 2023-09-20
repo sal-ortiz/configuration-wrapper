@@ -42,10 +42,9 @@ class Configuration extends Object {
     let type = MIME.lookup(filename);
     let raw = File.readFileSync(filename);
 
-    let parser = Parsers[type];
-    let content = parser.parse(raw.toString());
+    let content = raw.toString();
 
-    return new Configuration(content);
+    return Configuration.fromString(content);
   }
 
   static fromString(str) {
