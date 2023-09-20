@@ -27,9 +27,9 @@ class Configuration extends Object {
 
   toXML() {
     let obj = Object.assign({}, this);
-    let parser = new XML.j2xParser();
+    let builder = new XML.XMLBuilder();
 
-    return parser.parse(obj);
+    return builder.build(obj);
   }
 
   toYAML() {

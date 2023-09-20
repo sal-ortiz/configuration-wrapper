@@ -44,6 +44,7 @@ describe(Configuration.name, () => {
 
       beforeEach(() => {
         instance = Configuration.fromFile(xmlStub);
+
         result = instance.toXML();
       });
 
@@ -51,7 +52,9 @@ describe(Configuration.name, () => {
         expect(result).toBeDefined();
         expect(result.constructor).toBe(String);
 
-        let parsedRes = XML.parse(result);
+        let XMLParser = new XML.XMLParser();
+
+        let parsedRes = XMLParser.parse(result);
         let instanceObj = Object.assign({}, instance);
 
         expect(parsedRes).toEqual(instanceObj);
