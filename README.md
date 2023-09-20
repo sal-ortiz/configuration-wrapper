@@ -18,9 +18,9 @@ or
 ```
 const File = require('fs');
 
-let rawStr = readFileSync('input.yml'); // YAML, JSON, or XML file
+let rawBuf = readFileSync('input.yml'); // YAML, JSON, or XML file
 
-Configuration.fromString(rawStr.toString())
+Configuration.fromString(rawBuf.toString())
 
 ```
 ## Other Tricks
