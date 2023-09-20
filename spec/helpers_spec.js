@@ -37,6 +37,26 @@ describe(Helpers.name, () => {
 
     });
 
+    describe('given XML data', () => {
+
+      it('returns false', () => {
+        let res = Helpers.isJSON(rawXML.toString());
+
+        expect(res).toBeFalsy();
+      });
+
+    });
+
+    describe('given YAML data', () => {
+
+      it('returns false', () => {
+        let res = Helpers.isJSON(rawYAML.toString());
+
+        expect(res).toBeFalsy();
+      });
+
+    });
+
   });
 
   describe('the isYAML() function.', () => {
@@ -51,6 +71,27 @@ describe(Helpers.name, () => {
 
     });
 
+    describe('given XML data', () => {
+
+      it('returns false', () => {
+        let res = Helpers.isYAML(rawXML.toString());
+
+        expect(res).toBeFalsy();
+      });
+
+    });
+
+    describe('given JSON data', () => {
+
+      it('returns true', () => {
+        let res = Helpers.isYAML(rawJSON.toString());
+
+        expect(res).toBeFalsy();
+      });
+
+    });
+
+
   });
 
   describe('the isXML() function.', () => {
@@ -61,6 +102,26 @@ describe(Helpers.name, () => {
         let res = Helpers.isXML(rawXML.toString());
 
         expect(res).toBeTruthy();
+      });
+
+    });
+
+    describe('given YAML data', () => {
+
+      it('returns false', () => {
+        let res = Helpers.isXML(rawYAML.toString());
+
+        expect(res).toBeFalsy();
+      });
+
+    });
+
+    describe('given JSON data', () => {
+
+      it('returns false', () => {
+        let res = Helpers.isXML(rawJSON.toString());
+
+        expect(res).toBeFalsy();
       });
 
     });
