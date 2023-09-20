@@ -57,6 +57,8 @@ class Configuration extends Object {
       parser = Parsers['text/yaml'];
     } else if (Helpers.isXML(str)) {
       parser = Parsers['application/xml'];
+    } else {
+      throw 'unrecognized data format.'
     }
 
     let content = parser.parse(str);
