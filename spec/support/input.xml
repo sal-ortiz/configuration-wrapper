@@ -1,3 +1,5 @@
+<aFilename>one/two/three.ext</aFilename>
+<another_filename>./one_two_three.ext</another_filename>
 
 <anArray>1</anArray>
 <anArray>2</anArray>
@@ -10,3 +12,24 @@
   <three>3</three>
   <four>4</four>
 </anObject>
+
+<another_array>1<another_array>
+<another_array>2<another_array>
+<another_array>three<another_array>
+<another_array>four<another_array>
+
+<anArrayOfOBjects>
+  <key>
+    <one>1</one>
+    <two>2</two>
+    <three>three</three>
+    <four>four</four>
+  </key>
+</anArrayOfObjects>
+
+<an_object_of_arrays>
+  <key>1</key>
+  <key>2</key>
+  <key>three</key>
+  <key>four</key>
+</an_object_of_arrays>

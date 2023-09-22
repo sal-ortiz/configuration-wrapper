@@ -1,3 +1,6 @@
+aFilename: one/two/three.ext
+another_filename: ./one_two_three.ext
+
 anArray:
   - 1
   - 2
@@ -10,4 +13,18 @@ anObject:
   three: 3
   four: 4
 
-anotherArray: [one, two, three]
+another_array: [1, 2, "three", "four"]
+
+anArrayOfObjects:
+  - key:
+      one: 1
+      two: 2
+      three: "three"
+      four: "four"
+
+an_object_of_arrays:
+  key:
+    - 1
+    - 2
+    - "three"
+    - "four"

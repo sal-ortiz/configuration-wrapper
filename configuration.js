@@ -52,11 +52,11 @@ class Configuration extends Object {
 
     if (Helpers.isJSON(str)) {
       parser = Parsers['application/json'];
-    } else if (Helpers.isYAML(str)) {
-      parser = Parsers['text/yaml'];
     } else if (Helpers.isXML(str)) {
       parser = Parsers['application/xml'];
-    } else {
+    } else if (Helpers.isYAML(str)) {
+      parser = Parsers['text/yaml'];
+   } else {
       throw 'unrecognized data format.'
     }
 
