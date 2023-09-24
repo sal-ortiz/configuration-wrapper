@@ -26,6 +26,6 @@
   "directories.test": "spec",
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/slackjockey/configuration-wrapper.git"
+    "url" : "https://github.com/sal-ortiz/configuration-wrapper.git"
   }
 }
